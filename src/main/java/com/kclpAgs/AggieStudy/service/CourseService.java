@@ -19,7 +19,7 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public List<Course> getCoursesByTopic(String subject){
+    public List<Course> getCoursesBySubject(String subject){
         return courseRepository.findBySubject(subject);
     }
 

@@ -26,9 +26,9 @@ public class CourseController {
         return course.orElse(null);
     }
 
-    @GetMapping("/topic/{topic}")
-    public List<Course> getCoursesByTopic(@PathVariable String topic) {
-        return courseService.getCoursesByTopic(topic);
+    @GetMapping("/subject/{subject}")
+    public List<Course> getCoursesBySubject(@PathVariable String subject) {
+        return courseService.getCoursesBySubject(subject);
     }
 
     @GetMapping("/search")

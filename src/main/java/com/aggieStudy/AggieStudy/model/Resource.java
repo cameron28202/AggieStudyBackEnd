@@ -2,8 +2,8 @@ package com.aggieStudy.AggieStudy.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Links")
-public class Link {
+@Table(name = "Resources")
+public class Resource {
 
     @Id
     private String id;
@@ -13,7 +13,7 @@ public class Link {
     private String url;
     private String courseId;
 
-    public Link(){}
+    public Resource(){}
 
     public String getCourseId() {
         return courseId;

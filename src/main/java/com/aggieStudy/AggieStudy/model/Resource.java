@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 public class Resource {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String type;

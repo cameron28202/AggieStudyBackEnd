@@ -7,6 +7,7 @@ import com.aggieStudy.AggieStudy.model.Resource;
 import com.aggieStudy.AggieStudy.repo.ResourceRepo;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ResourceService {
@@ -16,13 +17,13 @@ public class ResourceService {
     public List<Resource> getAllResources(){
         return ResourceRepository.findAll();
     }
-    public Resource getResourceById(String id){
+    public Resource getResourceById(UUID id){
         return ResourceRepository.findById(id).orElse(null);
     }
     public Resource saveResource(Resource Resource) {
         return ResourceRepository.save(Resource);
     }
-    public void deleteResource(String id) {
+    public void deleteResource(UUID id) {
         ResourceRepository.deleteById(id);
     }
     public List<Resource> getResourcesByCourseId(String courseId){

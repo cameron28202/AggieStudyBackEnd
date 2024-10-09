@@ -8,6 +8,8 @@ import com.aggieStudy.AggieStudy.model.Resource;
 import com.aggieStudy.AggieStudy.service.CourseService;
 import com.aggieStudy.AggieStudy.service.ResourceService;
 
+
+import java.util.UUID;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +32,7 @@ public class ResourceController {
     }
 
     @GetMapping("/{id}")
-    public Resource getResourceById(@PathVariable String id) {
+    public Resource getResourceById(@PathVariable UUID id) {
         return ResourceService.getResourceById(id);
     }
 
@@ -45,7 +47,7 @@ public class ResourceController {
         return ResourceService.saveResource(Resource);
     }
     @DeleteMapping("/{id}")
-    public void deleteResource(@PathVariable String id) {
+    public void deleteResource(@PathVariable UUID id) {
         ResourceService.deleteResource(id);
     }
 }

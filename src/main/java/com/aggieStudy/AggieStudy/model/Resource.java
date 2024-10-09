@@ -1,4 +1,6 @@
 package com.aggieStudy.AggieStudy.model;
+import java.util.UUID;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,7 +9,7 @@ public class Resource {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private UUID id;
 
     private String type;
     private String description;

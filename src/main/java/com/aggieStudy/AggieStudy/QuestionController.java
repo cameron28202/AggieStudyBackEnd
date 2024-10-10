@@ -19,7 +19,7 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @PostMapping("/exam/{examId}")
+    @PostMapping("/{examId}")
     public ResponseEntity<Question> addQuestionToExam(@PathVariable String examId, @RequestBody Question question) {
         Question savedQuestion = questionService.addQuestionToExam(examId, question);
         if (savedQuestion != null) {

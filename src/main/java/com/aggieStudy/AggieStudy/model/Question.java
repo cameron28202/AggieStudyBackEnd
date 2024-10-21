@@ -20,6 +20,8 @@ public class Question {
     @Column(columnDefinition = "text")
     private String question;
 
+    private String imageUrl;
+
     private boolean isOpenEnded;
 
 
@@ -37,6 +39,14 @@ public class Question {
     public String getExamId() {return exam != null ? exam.getId() : null;}
 
     public Question(){}
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public UUID getId() {
         return id;

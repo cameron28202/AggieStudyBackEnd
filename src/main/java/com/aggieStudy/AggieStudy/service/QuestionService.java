@@ -12,6 +12,7 @@ import com.aggieStudy.AggieStudy.repo.QuestionRepo;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.Optional;
 
 @Service
 public class QuestionService {
@@ -21,6 +22,18 @@ public class QuestionService {
     @Autowired
     private ExamRepo examRepository;
 
+    @Transactional
+    public Question updateQuestionImageUrl(UUID questionId, String imageUrl) {
+        Optional<Question> questionOptional = questionRepository.findById(questionId);
+        if(questionOptional.isPresent()){
+            Question question = questionOptional.get();
+            question.setImageUrl(imageUrl);
+            return questionRepository.save(question);
+        } 
+        else{
+            throw new RuntimeException("Question not found with id: " + questionId);
+        }
+    }
     public Question saveQuestion(Question question) {
         return questionRepository.save(question);
     }

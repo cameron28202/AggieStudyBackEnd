@@ -19,6 +19,17 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+    @PatchMapping("/{id}/image-url")
+    public ResponseEntity<Question> updateQuestionImageUrl(@PathVariable UUID id, @RequestBody String imageUrl) {
+        try{
+            Question updatedQuestion = questionService.updateQuestionImageUrl(id, imageUrl);
+            return ResponseEntity.ok(updatedQuestion);
+        }
+        catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/{examId}")
     public ResponseEntity<Question> addQuestionToExam(@PathVariable String examId, @RequestBody Question question) {
         Question savedQuestion = questionService.addQuestionToExam(examId, question);

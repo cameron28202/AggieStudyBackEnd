@@ -1,5 +1,6 @@
 # Application properties
 application-prod.properties
+application.properties
 
 # IDE files
 .idea/

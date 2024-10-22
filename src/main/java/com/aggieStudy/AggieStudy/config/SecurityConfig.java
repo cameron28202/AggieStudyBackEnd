@@ -16,6 +16,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import java.util.Collections;
 
 import java.io.IOException;
 
@@ -62,13 +67,13 @@ class ApiKeyFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
         
-
         System.out.println("========================");
         System.out.println("Request Method: " + request.getMethod());
         System.out.println("Received API Key: " + request.getHeader("X-API-Key"));
         System.out.println("Configured API Key: " + apiKey);
         System.out.println("Keys match: " + (request.getHeader("X-API-Key") != null && request.getHeader("X-API-Key").equals(apiKey)));
         System.out.println("========================");
+
         // Skip filter for GET requests
         if (request.getMethod().equals(HttpMethod.GET.name())) {
             filterChain.doFilter(request, response);
@@ -81,6 +86,10 @@ class ApiKeyFilter extends OncePerRequestFilter {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
         }
+
+        // Add this: Set up authentication when API key is valid
+        Authentication authentication = new UsernamePasswordAuthenticationToken("API", null, Collections.singletonList(new SimpleGrantedAuthority("ROLE_API")));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         filterChain.doFilter(request, response);
     }

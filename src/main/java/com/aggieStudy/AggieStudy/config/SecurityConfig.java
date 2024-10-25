@@ -66,14 +66,6 @@ class ApiKeyFilter extends OncePerRequestFilter {
             HttpServletRequest request,
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
-        
-        System.out.println("========================");
-        System.out.println("Request Method: " + request.getMethod());
-        System.out.println("Received API Key: " + request.getHeader("X-API-Key"));
-        System.out.println("Configured API Key: " + apiKey);
-        System.out.println("Keys match: " + (request.getHeader("X-API-Key") != null && request.getHeader("X-API-Key").equals(apiKey)));
-        System.out.println("========================");
-
         // Skip filter for GET requests
         if (request.getMethod().equals(HttpMethod.GET.name())) {
             filterChain.doFilter(request, response);

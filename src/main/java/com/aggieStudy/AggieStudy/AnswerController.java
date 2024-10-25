@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aggieStudy.AggieStudy.model.Answer;
-import com.aggieStudy.AggieStudy.model.Question;
 import com.aggieStudy.AggieStudy.service.AnswerService;
 
 @RestController

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aggieStudy.AggieStudy.model.Answer;
-import com.aggieStudy.AggieStudy.model.Exam;
 import com.aggieStudy.AggieStudy.model.Question;
 import com.aggieStudy.AggieStudy.repo.AnswerRepo;
 import com.aggieStudy.AggieStudy.repo.QuestionRepo;

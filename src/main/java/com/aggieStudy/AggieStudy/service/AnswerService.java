@@ -16,6 +16,8 @@ import com.aggieStudy.AggieStudy.repo.QuestionRepo;
 public class AnswerService {
     @Autowired
     private AnswerRepo answerRepo;
+
+    @Autowired
     private QuestionRepo questionRepo;
 
     public List<Answer> getAllAnswers(){

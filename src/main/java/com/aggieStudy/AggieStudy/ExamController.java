@@ -42,7 +42,7 @@ public class ExamController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteLink(@PathVariable String id) {
+    public void deleteExam(@PathVariable String id) {
         examService.deleteExam(id);
     }
 }

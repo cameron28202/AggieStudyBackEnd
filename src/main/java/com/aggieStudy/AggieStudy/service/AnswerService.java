@@ -28,6 +28,10 @@ public class AnswerService {
         return answerRepo.findByQuestionId(questionId);
     }
 
+    public void deleteAnswer(UUID answerId){
+        answerRepo.deleteById(answerId);
+    }
+
     @Transactional
     public Answer addAnswerToQuestion(Answer answer, UUID questionId) {
         Question question = questionRepo.findById(questionId).orElse(null);

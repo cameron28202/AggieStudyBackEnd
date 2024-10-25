@@ -27,7 +27,7 @@ public class AnswerController {
         return answerService.getAllAnswers();
     }
 
-    @GetMapping
+    @GetMapping("/{questionId}")
     public List<Answer> getAnswersByQuestionId(@PathVariable UUID questionId){
         return answerService.getAnswersByQuestionId(questionId);
     }

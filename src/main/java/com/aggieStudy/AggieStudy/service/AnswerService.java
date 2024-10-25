@@ -28,7 +28,17 @@ public class AnswerService {
         return answerRepo.findByQuestionId(questionId);
     }
 
-    public void deleteAnswer(UUID answerId){
+    @Transactional
+    public void deleteAnswer(UUID answerId) {
+        Answer answer = answerRepo.findById(answerId)
+            .orElseThrow(() -> new RuntimeException("Answer not found with id: " + answerId));
+        
+        Question question = answer.getQuestion();
+        if (question != null) {
+            question.getAnswers().remove(answer);
+            questionRepo.save(question);
+        }
+        
         answerRepo.deleteById(answerId);
     }
 

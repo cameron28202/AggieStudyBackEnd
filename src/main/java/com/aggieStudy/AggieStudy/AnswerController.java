@@ -32,8 +32,8 @@ public class AnswerController {
         return answerService.getAnswersByQuestionId(questionId);
     }
 
-    @PostMapping("/{examId}")
-    public ResponseEntity<Answer> addQuestionToExam(@PathVariable UUID questionId, @RequestBody Answer answer) {
+    @PostMapping("/{questionId}")
+    public ResponseEntity<Answer> addAnswerToQuestion(@PathVariable UUID questionId, @RequestBody Answer answer) {
         Answer savedAnswer = answerService.addAnswerToQuestion(answer, questionId);
         if (savedAnswer != null) {
             return new ResponseEntity<>(savedAnswer, HttpStatus.CREATED);

@@ -30,6 +30,11 @@ public class QuestionController {
         }
     }
 
+    @DeleteMapping("/{questionId}")
+    public void deleteQuestionById(@PathVariable UUID questionId){
+        questionService.deleteQuestion(questionId);
+    }
+
     @PostMapping("/{examId}")
     public ResponseEntity<Question> addQuestionToExam(@PathVariable String examId, @RequestBody Question question) {
         Question savedQuestion = questionService.addQuestionToExam(examId, question);

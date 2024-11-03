@@ -38,7 +38,7 @@ public class Question {
     @JsonProperty("exam_id")
     public String getExamId() {return exam != null ? exam.getId() : null;}
 
-    public Question(){}
+    public Question(){} 
 
     public String getImageUrl() {
         return imageUrl;

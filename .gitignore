@@ -1,0 +1,31 @@
+# Application properties
+application-prod.properties
+application.properties
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Compiled files
+target/
+build/
+out/
+
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db

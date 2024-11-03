@@ -19,8 +19,8 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @PatchMapping("/{id}/image-url")
-    public ResponseEntity<Question> updateQuestionImageUrl(@PathVariable UUID id, @RequestBody String imageUrl) {
+    @PatchMapping("/{id}/{imageUrl}")
+    public ResponseEntity<Question> updateQuestionImageUrl(@PathVariable UUID id, @PathVariable String imageUrl) {
         try{
             Question updatedQuestion = questionService.updateQuestionImageUrl(id, imageUrl);
             return ResponseEntity.ok(updatedQuestion);
